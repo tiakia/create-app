@@ -1,0 +1,30 @@
+{
+  "presets":[
+    "react",
+    ["env", {
+      "targets": {
+        "browsers": ["last 2 versions", "safari >= 7"],
+        "node": "current"
+      },
+      "modules": false,
+      "debug": true,
+      "include": [
+        "transform-es2015-arrow-functions",
+        "transform-es2015-spread"
+      ],
+      "exclude": [],
+      "useBuiltIns": true
+    }]
+  ],
+  "plugins":[
+    ["transform-runtime", {
+      "helpers": false,
+      "polyfill": false,
+      "regenerator": true,
+      "moduleName": "babel-runtime"
+    }],
+    ["transform-object-rest-spread", {"useBuiltIns": true}],
+    "syntax-dynamic-import",
+    "react-hot-loader/babel"
+  ]
+}

@@ -1,0 +1,80 @@
+@mixin flexCenter($dir: row){
+    display: flex;
+    flex-direction: $dir;
+    align-items: center;
+    justify-content: center;
+}
+
+.layout {
+    display: grid;
+    width: 100%;
+    grid-template-areas: "head head"
+                         "nav main"
+                         "nav foot";
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: 100px 1fr 50px;
+    grid-gap: 10px;
+    .header {
+        width: 100%;
+        grid-area: head;
+        display: flex;
+        flex: 1;
+    }
+    .nav {
+        grid-area: nav;
+        border: 1px solid #ddd;
+        padding-left: 10px;
+        padding-right: 10px;
+        min-height: calc(100vh - 100px - 20px - 2px);
+        /* 浏览器高度 - header高度 - grid-gap - border */
+        a {
+            @include flexCenter('column')
+            padding: 10px;
+            text-decoration: none;
+            //border: 1px solid #000;
+            border-radius: 5px;
+            color: #000;
+            &.active {
+                background-color: red;
+                color: #fff;
+                border-color: red;
+            }
+        }
+        ul {
+            padding-left: 0;
+        }
+        .supMenu {
+            padding: {
+                top: 10px;
+                bottom: 10px;
+            }
+            cursor: pointer;
+            @include flexCenter();
+            &:after {
+               content: '';
+               display: block;
+               width: 5px;
+               height: 5px;
+               border-left: 4px solid #000;
+               border-bottom: 4px solid #000;
+               transform: rotate(-45deg) translate(23px,19px);
+            }
+            &.active {
+                &:after {
+                  transform: rotate(135deg) translate(-22px,-25px);
+                }
+            }
+        }
+        .subMenu {}
+    }
+    .main {
+        gird-area: main;
+        border: 1px solid #ddd;
+        @include flexCenter();
+    }
+    .footer {
+        grid-area: foot;
+        border: 1px solid #ddd;
+        @include flexCenter();
+    }
+}

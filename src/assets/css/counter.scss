@@ -1,0 +1,21 @@
+.increBtn, .decreBtn, .increAsyncBtn {
+    padding: 5px 8px;
+    border: 1px solid red;
+    border-radius: 3px;
+    outline: none;
+    color: #fff;
+    background-color: red;
+    margin: {
+        bottom: 20px;
+        top: 20px;
+    }
+}
+.decreBtn {
+    margin: {
+        left: 20px;
+    }
+}
+.countResult {
+    font-size: 14px;
+    font-weight: bold;
+}

@@ -1,0 +1,43 @@
+.loading-con {
+    padding: 2rem 5rem;
+    width: 100%;
+    .loading-header {
+        display: flex;
+        flex: 1;
+        flex-direction: row;
+        align-item: center;
+    }
+    .loading-logo {
+        width: 4rem;
+        height: 4rem;
+        border-radius: 50%;
+        background-color: #ddd;
+        border: 1px solid #ddd;
+        margin-right: 1rem;
+    }
+}
+.animation{
+    animation: blinblin 3s infinite;
+    transform: translate3d(0,0,0);
+}
+
+@keyframes blinblin {
+    0% {
+        opacity: 0.5;
+    }
+    20% {
+        opacity: .6;
+    }
+    40% {
+        opacity: .7;
+    }
+    60% {
+        opacity: .8;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: .5;
+    }
+}
