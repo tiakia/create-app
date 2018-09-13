@@ -55,10 +55,6 @@
 │   │   ├── layout.js
 │   │   └── Nav.js
 │   ├── main.js
-│   ├── models
-│   │   └── Todo
-│   │       ├── actions.js
-│   │       └── reducer.js
 │   ├── routes
 │   │   ├── About
 │   │   │   └── About.js
