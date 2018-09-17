@@ -15,23 +15,20 @@ import Welcome from './../components/Welcome';
 import { history } from 'src/store/createStore';
 
 class Root extends Component {
-  render(){
-    const token = localStorage.getItem('token');
+    render(){
     return(
-      <Provider store={this.props.store}>
-        <ConnectedRouter history={history}>
-          <Switch>
-            <Route path="/" exact component={Welcome} />
-            <Route path="/login" component={Welcome} />
-            <Authorized
-              path="/main"
-              component={Routes}
-              noMatch="/404"
-              token={token}
-            />
-            <Route component={NoMatch}/>
-          </Switch>
-        </ConnectedRouter>
+        <Provider store={this.props.store}>
+          <ConnectedRouter history={history}>
+            <Switch>
+              <Route path="/login" exact component={Welcome} />
+              <Route path="/404" exact component={NoMatch}/>
+              <Authorized
+                path="/"
+                component={Routes}
+                noMatch="/login"
+              />
+            </Switch>
+          </ConnectedRouter>
       </Provider>
     );
   }

@@ -32,8 +32,8 @@ export default class NoMatch extends Component {
                     <h1 className="errTitle">404</h1>
                     <div className="errMsg">抱歉，你访问的页面不存在</div>
         {
-            localStorage.getItem('token') !== null ?
-            <Link to="/main/home">
+            sessionStorage.getItem('token') !== null ?
+            <Link to="/home">
             <span>返回首页</span>
             </Link> :
             <Link to="/login">

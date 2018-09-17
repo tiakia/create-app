@@ -10,6 +10,7 @@ import React, { Component } from 'react';
 import 'src/assets/css/welcome.css';
 import PropTypes from 'prop-types';
 import { debounce } from 'src/utils/debounce';
+import { history } from 'src/store/createStore';
 
 export default class Welcome extends Component {
     constructor(props){
@@ -27,8 +28,8 @@ export default class Welcome extends Component {
     handleClick() {
         let { uname, pwd } = this.state;
         if(uname === 'admin' && pwd === "123456") {
-            localStorage.setItem('token',"admin");
-            this.props.history.push("/main/home");
+            sessionStorage.setItem('token',"admin");
+            history.push("/");
         }else {
             alert("用户名密码不正确");
         }
@@ -70,7 +71,7 @@ export default class Welcome extends Component {
 
 Welcome.propTypes = {
     history: PropTypes.shape({
-        push: PropTypes.func
+        go: PropTypes.func
     })
 
 }

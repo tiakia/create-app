@@ -2,8 +2,8 @@ import React, { Component  } from 'react';
 import { connect } from 'react-redux';
 import Todo from './../components/Todo';
 import PropTypes from 'prop-types';
-import { actions as todoActions } from 'src/models/Todo/actions';
-import { types as todoTypes } from 'src/models/Todo/actions';
+import { actions as todoActions } from './../modules/actions.js';
+import { types as todoTypes } from './../modules/actions.js';
 
 const completeTodo = todoActions.completeTodo;
 

@@ -31,17 +31,18 @@ const devLoaders = [
 
 const devPlugins = [
   new HtmlWebpackPlugin({
-    title: 'React-Redux-App',
-    inject: true,
-    template: Path('../static/tpl.html'),
-    chunksSortMode: 'none'
+      title: 'React-Redux-App',
+      inject: true,
+      template: Path('../static/tpl.html'),
+      chunksSortMode: 'none',
+      favicon: Path('../static/images/favicon.ico'),
   }),
-  new AddAssetHtmlPlugin([
-    {
-      filepath: Path('../static/js/vendors_lib.js'),
-      includeSourcemap: false
-    },
-    {
+    new AddAssetHtmlPlugin([
+        {
+            filepath: Path('../static/js/vendors_lib.js'),
+            includeSourcemap: false
+        },
+        {
       filepath: Path('../build/*.js'),
       includeSourcemap: false
     }

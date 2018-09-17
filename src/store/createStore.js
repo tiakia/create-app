@@ -4,7 +4,7 @@
  */
 import { applyMiddleware, createStore, compose } from 'redux';
 import { connectRouter, routerMiddleware } from 'connected-react-router';
-import { createHashHistory } from 'history';
+import createHistory from 'history/createHashHistory';
 import createSagaMiddleware from 'redux-saga';
 
 import appReducer from './reducers';
@@ -13,14 +13,14 @@ import rootSaga from './sagas';
 /**
  * 记录所有被发起的 action 以及产生的新的 state。
  */
-const logger = store => next => action => {
-    console.group(action.type);
-  console.info('dispatching', action);
-  let result = next(action);
-  console.log('next state', store.getState());
-  console.groupEnd(action.type);
-  return result;
-}
+/* const logger = store => next => action => {
+ *     console.group(action.type);
+ *   console.info('dispatching', action);
+ *   let result = next(action);
+ *   console.log('next state', store.getState());
+ *   console.groupEnd(action.type);
+ *   return result;
+ * } */
 /**
  * 让你可以发起一个函数来替代 action。
  * 这个函数接收 `dispatch` 和 `getState` 作为参数。
@@ -34,7 +34,7 @@ const thunk = store => next => action =>
     ? action(store.dispatch, store.getState)
       : next(action);
 
-export const history = createHashHistory();
+export const history = createHistory();
 
 const sagaMiddleware = createSagaMiddleware();
 

@@ -89,7 +89,16 @@ export default class Nav extends Component {
                     to={menu.path}
                     key={menu.path}
                     activeClassName="active"
-                    >
+                    isActive={(match, location) => {
+                      if(location.pathname === '/' && menu.path === '/home'){
+                          return true
+                      }else if(menu.path === location.pathname){
+                          return true
+                      }else{
+                          return false
+                      }
+                    }}
+                  >
                     {menu.name}
                   </NavLink>
                 </li>

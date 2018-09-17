@@ -1,3 +1,5 @@
+### 项目预览
+[项目预览](https://build-csyihhcgbt.now.sh)
 ### react+redux+react-router 写的架子以后项目可以直接拿来用
 1. 使用webpack 4 搭建
 2. react热更新 react-hot-loader
@@ -99,7 +101,7 @@
     ├── NoMatch.js
     ├── tpl.html
     └── vendors-manifest.json
-```
+    ```
 - ## 前台页面
 ### react/redux/react-router 结构
 ### main.js
@@ -111,7 +113,7 @@
 ### layouts
 主页结构布局文件
 ### routes
-路由文件，一个路由一个文件夹，比如 Todo 文件夹，里面包括 components 路由展示文件， containers 路由容器组件 index.js 是子路由的入口文件。 modules 是 子路由的 redux 文件夹，里面包括 actions 和 reducer
+路由文件，一个路由一个文件夹，比如 Todo 文件夹，里面包括 components 路由展示文件， containers 路由容器组件 index.js 是子路由的入口文件。 modules 是 子路由的 redux 文件夹，里面包括 actions 和 reducers 和 sagas 文件
 #### index.js
 用 store 启动主程序路由
 #### root.js

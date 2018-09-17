@@ -11,11 +11,9 @@ import { Route, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 export default class Authorized extends Component {
-    constructor(props){
-        super(props);
-    }
     render(){
-        const { component: Component, token, noMatch, ...rest } = this.props;
+        const { component: Component, noMatch, ...rest } = this.props;
+        const token = sessionStorage.getItem('token');
         return(
             <Route {...rest} render={ props => {
                 return  token !== null

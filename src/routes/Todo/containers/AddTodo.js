@@ -1,7 +1,7 @@
 import React ,{ Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { actions as todoActions } from 'src/models/Todo/actions';
+import { actions as todoActions } from './../modules/actions';
 
 const addTodo = todoActions.addTodo;
 

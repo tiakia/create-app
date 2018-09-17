@@ -151,12 +151,12 @@ const proConfig = merge(common,{
           new OptimizeCSSAssetsPlugin({})
       ]
   },
-  recordsOutputPath: path.join(__dirname, "build", "records.json"),
-    module: {
-        rules: proLoaders
-    },
-    mode: "production",
-    plugins: proPlugins
+  recordsOutputPath: Path('../build/records.json'),
+  module: {
+      rules: proLoaders
+  },
+  mode: "production",
+  plugins: proPlugins
 });
 
 module.exports = proConfig;

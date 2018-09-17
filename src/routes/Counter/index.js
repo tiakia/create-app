@@ -25,16 +25,15 @@ class Counter extends PureComponent {
     }
     handleClick(type){
         const { dispatch } = this.props;
-        dispatch({type: type});
+        dispatch({ type });
     }
     render(){
-        console.log(this.props);
         return(
             <div id="counter">
-            <button className="increBtn" onClick={() => this.handleClick('INCREMENT')}>Increment</button>
-            <button className="decreBtn" onClick={() => this.handleClick('DECREMENT')}>decrement</button>
+            <button className="increBtn" onClick={() => this.handleClick(types.INCREMENT)}>Increment</button>
+            <button className="decreBtn" onClick={() => this.handleClick(types.DECREMENT)}>decrement</button>
             <div className="countResult">count1: {this.props.count.count1}</div>
-            <button className="increAsyncBtn" onClick={() => this.handleClick('INCREMENTASYNC')}>IncrementAsync after 1s</button>
+            <button className="increAsyncBtn" onClick={() => this.handleClick(types.INCREMENTASYNC)}>IncrementAsync after 1s</button>
             <div className="countResult">count2: {this.props.count.count2}</div>
             </div>
         );

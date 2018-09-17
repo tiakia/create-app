@@ -2,20 +2,20 @@ const menuData = [
      {
          name: "首页",
          icon: "home",
-         path: "main/home"
+         path: "home"
      },
      {
          name: "Todo",
-         path: "main/todo",
+         path: "todo",
      },
      {
          name: "Counter",
-         path: "main/counter"
+         path: "counter"
      },
      {
          name: "一级菜单",
          icon: "person",
-         path: "main/about",
+         path: "about",
          show: false,
          children: [
              {

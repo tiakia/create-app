@@ -7,7 +7,7 @@
  */
 
 import React, { Component } from 'react';
-import axios from 'axios';
+//import axios from 'axios';
 import 'src/assets/css/home.scss';
 
 export default class Home extends Component {

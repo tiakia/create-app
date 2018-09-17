@@ -26,25 +26,29 @@ const Counter = Loadable({
 
 const routerConfig = [
     {
-        path: "/main/home",
+        path: '/',
+        exact: true,
         component: Home
     },
     {
-        path: "/main/about/person",
+        path: "/home",
         exact: true,
+        component: Home
+    },
+    {
+        path: "/about/person",
         component: About
     },
     {
-        path: "/main/todo",
+        path: "/todo",
         component: Todo
     },
     {
-        path: "/main/counter",
+        path: "/counter",
         component: Counter
     },
     {
-        path: "/main/about/person1/loading",
-        exact: true,
+        path: "/about/person1/loading",
         component: Loading
     }
 ];

@@ -6,7 +6,7 @@ import { types } from '../modules/actions';
 class Footer extends Component {
     renderFilter(filter,name,search=types.SHOW_ALL){
         return (
-            <Link to={`/main/todo?${filter}`}
+            <Link to={`/todo?${filter}`}
                   className={filter === search ? 'active' : ''}
             >
               {name}

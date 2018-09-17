@@ -1,5 +1,5 @@
 import { delay } from 'redux-saga';
-import { put, take, select, all } from 'redux-saga/effects';
+import { take, select, all } from 'redux-saga/effects';
 
 import { incrementAsync } from 'src/routes/Counter/modules/sagas';
 
