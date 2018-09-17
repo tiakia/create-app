@@ -85,16 +85,16 @@ const devConfig = merge(common,{
   },
   optimization: {
     minimize: false,
-    runtimeChunk: true,
+    runtimeChunk: 'single',
     mergeDuplicateChunks: true,
     removeEmptyChunks: true,
     splitChunks: {
-      chunks: 'async',
+      chunks: 'all',
       cacheGroups: {
         commons: {
             test: /[\\/]node_modules[\\/]/,
-            name: "vendor",
-            chunks: "all"
+            name: "commons",
+            chunks: "initial"
         }
       }
     }

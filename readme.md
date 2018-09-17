@@ -16,6 +16,8 @@
 15. 增加 module 和 router 按需加载(react-loadable)(完成)
 16. 防抖和节流函数的运用
 17. menu.js 多级菜单处理
+
+全局的菜单和路由的配置文件在`src/common/menu.js`,`src/common/router.js`,参考了`antd-prod`项目的配置，在这俩个文件中配置项目的菜单和路由导航，使用了`react-loadable` 来做路由的按需加载
 ### 文件结构
 
 ```
@@ -113,6 +115,13 @@
 全局可复用的表现组件
 ### containers
 全局可复用的容器组件
+### assets
+存放静态文件,比如css/images/js
+### common
+#### menu.js
+项目菜单的配置文件
+#### router.js
+项目路由的配置文件
 ### layouts
 主页结构布局文件
 ### routes
@@ -122,9 +131,13 @@
 #### root.js
 为上下文 provider 包住组件
 #### router.js
-所有的路由文件集合
+所有的路由文件集合,使用了`react-router-config`的 `renderRoutes`方法渲染 放在 `src/common/router.js`文件中的路由
 ### store
-文件夹中 reducers.js 是所有 reducer的集合， createStore.js 是配置 redux Store 的文件，可以在这里添加中间件
+文件夹中 reducers.js 是所有 reducer的集合， createStore.js 是配置 redux Store 的文件，可以在这里添加中间件, sagas.js 是全局的 sagas 文件集合
+### service
+该文件中存放 api 文件
+### utils
+存放工具类的文件。比如封装 ajax 请求，封装的时间处理等
 ### webpack 配置
 #### webpack.dll.config.js
 打包第三方框架文件，包括 react, react-dom, react-router-dom, redux, react-redux, 项目开始是要先运行一下这个文件再`npm start`
@@ -144,8 +157,8 @@ webpack 开发环境配置,包括
 
 
 #### 注意问题：
-1.有时候你需要 `rm -rf node_modules/` 文件夹 然后重新 `npm install`,这个时候你会发现`node-sass`模块不管你怎么安装都没用，这个原因大部分是因为`cnpm`的源导致的，推荐安装 `nrm` 管理所有的 `npm` 源，使用`nrm use npm` 切换回 `npm` 的源 然后重新 `npm install` 就可以安装上了
-2.`bable` 的配置需要俩个 一个是 `babel-preset-react` 和 `babel-preset-env` 然后 配置 `env` 的 插件 ，如果不是 `env`的插件 需要 单独的 `plugins` 模块安装
+1. 有时候你需要 `rm -rf node_modules/` 文件夹 然后重新 `npm install`,这个时候你会发现`node-sass`模块不管你怎么安装都没用，这个原因大部分是因为`cnpm`的源导致的，推荐安装 `nrm` 管理所有的 `npm` 源，使用`nrm use npm` 切换回 `npm` 的源 然后重新 `npm install` 就可以安装上了
+2. `bable` 的配置需要俩个 一个是 `babel-preset-react` 和 `babel-preset-env` 然后 配置 `env` 的 插件 ，如果不是 `env`的插件 需要 单独的 `plugins` 模块安装
 
 ```
 
