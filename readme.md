@@ -17,6 +17,7 @@
 16. 防抖和节流函数的运用
 17. menu.js 多级菜单处理
 ### 文件结构
+
 ```
 ── build
 ├── config
@@ -101,8 +102,10 @@
     ├── NoMatch.js
     ├── tpl.html
     └── vendors-manifest.json
-    ```
-- ## 前台页面
+
+```
+
+## 前台页面
 ### react/redux/react-router 结构
 ### main.js
 前端程序源文件
@@ -143,7 +146,9 @@ webpack 开发环境配置,包括
 #### 注意问题：
 1.有时候你需要 `rm -rf node_modules/` 文件夹 然后重新 `npm install`,这个时候你会发现`node-sass`模块不管你怎么安装都没用，这个原因大部分是因为`cnpm`的源导致的，推荐安装 `nrm` 管理所有的 `npm` 源，使用`nrm use npm` 切换回 `npm` 的源 然后重新 `npm install` 就可以安装上了
 2.`bable` 的配置需要俩个 一个是 `babel-preset-react` 和 `babel-preset-env` 然后 配置 `env` 的 插件 ，如果不是 `env`的插件 需要 单独的 `plugins` 模块安装
+
 ```
+
 {
   "presets":[
     "react",
@@ -171,6 +176,7 @@ webpack 开发环境配置,包括
         "transform-object-rest-spread"
   ]
 }
+
 ```
 
 > tip: 建议还是在`create-react-app` 脚手架的基础上进行自定义配置，自己搭的话需要从头再来
