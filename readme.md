@@ -53,7 +53,6 @@
 │   │   ├── loading.js
 │   │   └── Welcome.js
 │   ├── containers
-│   │   └── ajax.js
 │   ├── layouts
 │   │   ├── Footer.js
 │   │   ├── Header.js
@@ -93,6 +92,7 @@
 │   │   └── sagas.js
 │   └── utils
 │       └── debounce.js
+│       └── ajax.js
 └── static
     ├── css
     │   └── 404.css
