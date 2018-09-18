@@ -193,3 +193,6 @@ webpack 开发环境配置,包括
 ```
 
 > tip: 建议还是在`create-react-app` 脚手架的基础上进行自定义配置，自己搭的话需要从头再来
+
+#### build 打包图
+![build](https://github.com/tiakia/react-redux-app/static/images/bundle.png)

@@ -7,6 +7,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 const WebpackDevServer = require('webpack-dev-server');
 const CleanPlugin = require('clean-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const AppPort = require('./port.js').port;
 
@@ -30,13 +31,20 @@ const devLoaders = [
 ];
 
 const devPlugins = [
-  new HtmlWebpackPlugin({
-      title: 'React-Redux-App',
-      inject: true,
-      template: Path('../static/tpl.html'),
-      chunksSortMode: 'none',
-      favicon: Path('../static/images/favicon.ico'),
-  }),
+    //打包结果页
+    new BundleAnalyzerPlugin({
+        analyzerMode: 'server',
+        analyzerHost: '127.0.0.1',
+        analyzerPort: "8888",
+        openAnalyzer: true
+    }),
+    new HtmlWebpackPlugin({
+        title: 'React-Redux-App',
+        inject: true,
+        template: Path('../static/tpl.html'),
+        chunksSortMode: 'none',
+        favicon: Path('../static/images/favicon.ico'),
+    }),
     new AddAssetHtmlPlugin([
         {
             filepath: Path('../static/js/vendors_lib.js'),
