@@ -23,8 +23,8 @@ let rootElement = document.getElementById('root');
  *         module.hot.accept('./routes/index',() => {
  *             const NewApp = require('./routes/index').default;
  *             render(
- *                     <NewApp/>
- *                     rootElement
+ *                 <NewApp/>,
+ *                 rootElement
  *             );
  *         });
  *     }

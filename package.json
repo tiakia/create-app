@@ -6,6 +6,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "connected-react-router": "^4.3.0",
+    "css-spring": "^4.1.0",
     "history": "^4.7.2",
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
@@ -16,7 +17,8 @@
     "react-router-dom": "^4.2.2",
     "react-router-redux": "^5.0.0-alpha.9",
     "redux": "^4.0.0",
-    "redux-saga": "^0.16.0"
+    "redux-saga": "^0.16.0",
+    "styled-components": "^3.4.9"
   },
   "devDependencies": {
     "add-asset-html-webpack-plugin": "^2.1.3",

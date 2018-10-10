@@ -20,7 +20,7 @@ export default class Home extends Component {
     this.handleHomeClick = this.handleHomeClick.bind(this);
   }
   componentDidMount(){
-
+      console.log('123fd');
   }
   async handleHomeClick(){
     try {
@@ -41,7 +41,7 @@ export default class Home extends Component {
       <div id="homePage">
         <h1>Home Page</h1>
         <button onClick={this.handleHomeClick}>get response</button>
-      </div>
+        </div>
     );
   }
 }

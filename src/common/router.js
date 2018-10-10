@@ -22,6 +22,11 @@ const Todo = Loadable({
 const Counter = Loadable({
     loader: () => import('src/routes/Counter'),
     loading: Loading
+});
+
+const Spring = Loadable({
+    loader: () => import('src/routes/Spring'),
+    loading: Loading
 })
 
 const routerConfig = [
@@ -46,6 +51,10 @@ const routerConfig = [
     {
         path: "/counter",
         component: Counter
+    },
+    {
+        path: "/about/spring",
+        component: Spring
     },
     {
         path: "/about/person1/loading",

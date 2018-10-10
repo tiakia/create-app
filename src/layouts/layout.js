@@ -34,7 +34,7 @@ export default class Layout extends Component {
                 <Nav/>
               </div>
               <main className="main">
-                {this.props.children}
+               {this.props.children}
               </main>
               <div className="footer">
                 <Footer/>

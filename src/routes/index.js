@@ -6,7 +6,8 @@
 import React from 'react';
 import Root from './root';
 import store from './../store/createStore';
+import { hot } from 'react-hot-loader';
 
 const App = () => <Root store={store}/>;
 
-export default App;
+export default hot(module)(App);

@@ -19,12 +19,12 @@ const menuData = [
          show: false,
          children: [
              {
-                 name: "二级菜单1",
+                 name: "个人中心",
                  path: "person"
              },
              {
-                 name: "二级菜单2",
-                 path: "erji3"
+                 name: "弹簧动效",
+                 path: "spring"
              },
              {
                  name: "二级菜单3",

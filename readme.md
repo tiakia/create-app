@@ -1,5 +1,5 @@
 ### 项目预览
-[项目预览](https://build-csyihhcgbt.now.sh)
+[项目预览](https://build-ffedidncfv.now.sh)
 ### react+redux+react-router 写的架子以后项目可以直接拿来用
 1. 使用webpack 4 搭建
 2. react热更新 react-hot-loader
@@ -13,11 +13,16 @@
 12. axios 异步请求
 13. 增加 redux-saga 处理异步
 14. 增加 router-redux 整合 (react-router-config/connnect-react-router)
-15. 增加 module 和 router 按需加载(react-loadable)(完成)
+15. 增加 module 和 router 按需加载(react-loadable & @bable/plugin-syntax-dynamic-import)
 16. 防抖和节流函数的运用
 17. menu.js 多级菜单处理
 
-全局的菜单和路由的配置文件在`src/common/menu.js`,`src/common/router.js`,参考了`antd-prod`项目的配置，在这俩个文件中配置项目的菜单和路由导航，使用了`react-loadable` 来做路由的按需加载
+- 全局的菜单和路由的配置文件在`src/common/menu.js`,`src/common/router.js`,参考了`antd-pro`项目的配置，在这俩个文件中配置项目的菜单和路由导航
+- 使用了`react-loadable` 来做路由的按需加载
+- connect-react-router 做 react-router 和 redux 的深度结合
+- react-hot-loader 做 热更新
+- redux 文件放在每个路由文件中 module 文件夹中  saga 处理异步 的文件也放在其中
+
 ### 文件结构
 
 ```
@@ -196,3 +201,6 @@ webpack 开发环境配置,包括
 
 #### build 打包图
 ![build](./static/images/bundle.png)
+
+#### 新增弹簧特效后的打包图
+![new-build](./static/images/webpack-bundle.png)
