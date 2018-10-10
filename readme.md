@@ -1,5 +1,5 @@
 ### 项目预览
-[项目预览](https://build-ffedidncfv.now.sh)
+<a href="https://build-ffedidncfv.now.sh" target="_blank">项目预览</a>
 ### react+redux+react-router 写的架子以后项目可以直接拿来用
 1. 使用webpack 4 搭建
 2. react热更新 react-hot-loader
