@@ -1,60 +1,74 @@
-const webpack = require('webpack');
-const path = require('path');
-const merge = require('webpack-merge');
-const OpenBrowserPlugin = require('open-browser-webpack-plugin');
-const CommonConfig = require('./webpack.common.js');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
-const WebpackDevServer = require('webpack-dev-server');
-const CleanPlugin = require('clean-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const webpack = require("webpack");
+const path = require("path");
+const merge = require("webpack-merge");
+const OpenBrowserPlugin = require("open-browser-webpack-plugin");
+const CommonConfig = require("./webpack.common.js");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+// 骨架屏 插件
+// const { SkeletonPlugin } = require('page-skeleton-webpack-plugin');
+//const PrerenderSPAPlugin = require('prerender-spa-plugin');
+const AddAssetHtmlPlugin = require("add-asset-html-webpack-plugin");
+const WebpackDevServer = require("webpack-dev-server");
+const CleanPlugin = require("clean-webpack-plugin");
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+  .BundleAnalyzerPlugin;
 
-const AppPort = require('./port.js').port;
+const AppPort = require("./port.js").port;
 
 const common = CommonConfig.config,
-      Path = CommonConfig.Path,
-      publicPath = CommonConfig.publicPath;
+  Path = CommonConfig.Path,
+  publicPath = CommonConfig.publicPath;
 
 const devLoaders = [
   {
     test: /\.css$/,
-    use: ['style-loader','css-loader','postcss-loader']
+    use: ["style-loader", "css-loader", "postcss-loader"]
   },
   {
     test: /\.scss$/i,
-    use: ['style-loader','css-loader','postcss-loader','sass-loader']
+    use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"]
   },
   {
     test: /\.less$/i,
-    use: ['style-loader','css-loader','postcss-loader','less-loader']
+    use: ["style-loader", "css-loader", "postcss-loader", "less-loader"]
   }
 ];
 
 const devPlugins = [
-    //打包结果页
-    new BundleAnalyzerPlugin({
-        analyzerMode: 'server',
-        analyzerHost: '127.0.0.1',
-        analyzerPort: "8888",
-        openAnalyzer: true
-    }),
-    new HtmlWebpackPlugin({
-        title: 'React-Redux-App',
-        inject: true,
-        template: Path('../static/tpl.html'),
-        chunksSortMode: 'none',
-        favicon: Path('../static/images/favicon.ico'),
-    }),
-    new AddAssetHtmlPlugin([
-        {
-            filepath: Path('../static/js/vendors_lib.js'),
-            includeSourcemap: false
-        },
-        {
-      filepath: Path('../build/*.js'),
+  //打包结果页
+  new BundleAnalyzerPlugin({
+    analyzerMode: "server",
+    analyzerHost: "127.0.0.1",
+    analyzerPort: "8888",
+    openAnalyzer: true
+  }),
+  new HtmlWebpackPlugin({
+    title: "React-Redux-App",
+    inject: true,
+    template: Path("../static/tpl.html"),
+    chunksSortMode: "none",
+    favicon: Path("../static/images/favicon.ico")
+  }),
+  new AddAssetHtmlPlugin([
+    {
+      filepath: Path("../static/js/vendors_lib.js"),
+      includeSourcemap: false
+    },
+    {
+      filepath: Path("../build/*.js"),
       includeSourcemap: false
     }
   ]),
+  /* new SkeletonPlugin({
+        pathname: path.resolve(__dirname, `./shell`),
+        staticDir: Path('../build/'), // the same as the `output.path`
+        routes: ['/'], // Which routes you want to generate skeleton screen
+        defer: 500000
+    }),*/
+  /* new PrerenderSPAPlugin({
+     *     staticDir: Path('../build'), // the same as the `output.path`
+     *     routes: ['/'], // Which routes you want to generate skeleton screen
+     * }), */
   // 显示 模块的 相对路径
   new webpack.NamedModulesPlugin(),
   // 浏览器 刷新
@@ -64,45 +78,48 @@ const devPlugins = [
     //'process.env.NODE_ENV': JSON.stringify('development')
   }),
   new webpack.DllReferencePlugin({
-      context: __dirname,
-      manifest: require(path.resolve(__dirname, '../static/vendors-manifest.json'))
+    context: __dirname,
+    manifest: require(path.resolve(
+      __dirname,
+      "../static/vendors-manifest.json"
+    ))
   }),
   new OpenBrowserPlugin({
-      url: `http://localhost:${AppPort}`
+    url: `http://localhost:${AppPort}`
   }),
-  new CleanPlugin(['build/*.*'],{
-        root: Path('../')
+  new CleanPlugin(["build/*.*"], {
+    root: Path("../")
   })
 ];
 
-const devConfig = merge(common,{
-  devtool: 'inline-source-map',
+const devConfig = merge(common, {
+  devtool: "inline-source-map",
   entry: {
-      index: [
-          `webpack-dev-server/client?http://localhost:${AppPort}`,
-          'webpack/hot/only-dev-server',
-          'react-hot-loader/patch',
-          'babel-polyfill',
-          Path('../src/main.js')
-      ]
+    index: [
+      `webpack-dev-server/client?http://localhost:${AppPort}`,
+      "webpack/hot/only-dev-server",
+      "react-hot-loader/patch",
+      "babel-polyfill",
+      Path("../src/main.js")
+    ]
   },
   output: {
-    path: Path('../build/'),
-    filename: '[name].[hash:5].js',
+    path: Path("../build/"),
+    filename: "[name].[hash:5].js",
     publicPath: publicPath
   },
   optimization: {
     minimize: false,
-    runtimeChunk: 'single',
+    runtimeChunk: "single",
     mergeDuplicateChunks: true,
     removeEmptyChunks: true,
     splitChunks: {
-      chunks: 'all',
+      chunks: "all",
       cacheGroups: {
         commons: {
-            test: /[\\/]node_modules[\\/]/,
-            name: "commons",
-            chunks: "initial"
+          test: /[\\/]node_modules[\\/]/,
+          name: "commons",
+          chunks: "initial"
         }
       }
     }
@@ -114,14 +131,14 @@ const devConfig = merge(common,{
   plugins: devPlugins
 });
 
-new WebpackDevServer(webpack(devConfig),{
-    clientLogLevel: 'none',
-    contentBase: Path('../static'),
-    historyApiFallback: true,
-    hot: true,
-}).listen(AppPort, 'localhost', (err, result) => {
-    if(err){
-        console.log(err);
-    }
-    console.log(`Listening at http://localhost:${AppPort}`);
+new WebpackDevServer(webpack(devConfig), {
+  clientLogLevel: "none",
+  contentBase: Path("../static"),
+  historyApiFallback: true,
+  hot: true
+}).listen(AppPort, "localhost", (err, result) => {
+  if (err) {
+    console.log(err);
+  }
+  console.log(`Listening at http://localhost:${AppPort}`);
 });

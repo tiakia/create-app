@@ -45,4 +45,10 @@ Counter.propTypes = {
     count: PropTypes.object
 }
 
+/* const mapStateToProps = function(state){
+ *     return {
+ *         count: state.count
+ *     }
+ * } */
+
 export default connect(({count}) => ({count}))(Counter);
